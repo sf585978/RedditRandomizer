@@ -12,8 +12,8 @@ randomizeToTreatment <- function(n, treatments = c("C", "T"), weights) {
   if(missing(weights)) {
     weights <- rep(1 / length(treatments), length(treatments))
   }
-  condition <- character(length(users))
-  for (i in 1:length(users)) {
+  condition <- character(n)
+  for (i in 1:n) {
     condition[i] <- sample(treatments, 1, prob = weights)
   }
   return(condition)
