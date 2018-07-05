@@ -1,0 +1,10 @@
+Package: RedditRandomizer
+Title: Reddit Randomizer: Collecting Samples of Reddit Users for Online Field Experiments
+Version: 0.0.0.9000
+Authors@R: person("Sean", "Fischer", email = "sean.fischer@asc.upenn.edu", role = c("aut", "cre"))
+Description: As part of a series of online field experiments I needed to be able to collect samples of redditors and assign them to various treatment conditions. The easiest and cheapest way to do so is to collect the commenters on popular posts in various subreddits. This package provides a few functions to interface with the Reddit API in R and pull down a set of popular posts from a set of subreddits, identify the commenters, and generate a table of their user account information.
+Depends: R (>= 3.4.4), httr, RJSONIO
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
