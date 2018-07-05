@@ -5,6 +5,11 @@ An R package to scrape Reddit commenters and their basic user info before assign
 As part of a series of online field experiments I needed to be able to collect samples of redditors and assign them to various treatment conditions. The easiest and cheapest way to do so is to collect the commenters on popular posts in various subreddits. This package provides a few functions to interface with the Reddit API in R and pull down a set of popular posts from a set of subreddits, identify the commenters, and generate a table of their user account information.
 
 ## Install
+```r
+# install.packages("devtools")
+library(devtools)
+devtools::install_github("sf585978/RedditRandomizer")
+```
 
 ## Set Up
 To set up Reddit Randomizer you will need to create your own Reddit web app. [The guide provided by the Reddit Archive](https://github.com/reddit-archive/reddit/wiki/OAuth2) provides you with the necessary information to get started. It is important to note that a Reddit web app expires after one hour. When this happens any API queries will return 401 errors. An easy fix when this happens is to change the name of your app, update via the /prefs/apps page on your Reddit account, and then rerun the code below.
@@ -72,4 +77,13 @@ commentersInfo$createdDate <- as.POSIXct(commenters$created, origin = "1970-01-0
 head(commentersInfo)
 library(summarytools)
 view(dfSummary(commentersInfo)
+```
+
+## Treatment Assignment
+Finally, since the Reddit platform allows for a variety of interventions, you can randomly assign subjects to any number of treatment conditions at any given ratio between groups.
+
+```r
+commentersInfo$Condition <- randomizeToTreatment(nrow(commentersInfo), c("Control", "Upvotes", "Reddit Gold"), c(0.5, 0.25, 0.25)
+head(commentersInfo)
+table(commentersInfo$Condition)
 ```
