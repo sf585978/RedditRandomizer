@@ -3,5 +3,6 @@
 export(getCommenters)
 export(getComments)
 export(getRecentThreads)
+export(getRecentThreadsNew)
 export(getUserInfo)
 export(randomizeToTreatment)
