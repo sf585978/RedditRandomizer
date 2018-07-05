@@ -1,8 +1,9 @@
 #' Get usernames of top-level Reddit commenters
-#' 
+#'
 #' @param thread The unique portion of a reddit url beginning with /r/ for which you would like to identify the top-level commenters
 #' @return A vector of Reddit usernames belonging to the top-level commenters for the given thread
-#' @example 
+#' @export
+#' @example
 #' getCommenters("/r/politics/comments/8w1me0/record_number_of_native_americans_running_for/")
 getCommenters <- function(thread) {
   require(httr)

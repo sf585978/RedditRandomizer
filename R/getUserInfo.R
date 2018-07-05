@@ -1,9 +1,10 @@
 #' Gather Reddit user info
-#' 
+#'
 #' @param user A Reddit username given as a string
 #' @return A data frame containing the user's username, account creation date in UTC, link karma, comment karma, Reddit Gold status, moderator status, verified status, verified email status, number of comments (up to 100), and number of submissions (up to 100)
+#' @export
 #' @example
-#' getUserInfo("awildsketchappeared") 
+#' getUserInfo("awildsketchappeared")
 getUserInfo <- function(user) {
   require(httr)
   require(RJSONIO)
@@ -14,7 +15,7 @@ getUserInfo <- function(user) {
               user_agent("MY_USER_AGENT"),
               config(token = token))
   data <- fromJSON(content(data, "text"))
-  comments <- GET(paste(accountURL, user, 
+  comments <- GET(paste(accountURL, user,
                         "/comments.json?limit=100000", sep = ""),
                   user_agent("MY_USER_AGENT"),
                   config(token = token))
