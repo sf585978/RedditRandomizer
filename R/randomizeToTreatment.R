@@ -15,9 +15,14 @@ randomizeToTreatment <- function(n, treatments = c("C", "T"), weights) {
   if (sum(weights) != 1) {
     error("Weights must sum to 1.")
   }
+  treatThresh <- cumsum(weights)
   condition <- character(n)
   for (i in 1:n) {
-    condition[i] <- sample(treatments, 1, prob = weights)
+    number <- (runif(n = 1, min = 0, max = 1))
+    dists <- number - treatThresh
+    dists <- ifelse(dists > 0, NA, dists)
+    thresh <- which.max(dists)
+    condition[i] <- thresh
   }
   return(condition)
 }
