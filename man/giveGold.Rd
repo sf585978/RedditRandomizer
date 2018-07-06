@@ -2,16 +2,16 @@
 % Please edit documentation in R/giveGold.R
 \name{giveGold}
 \alias{giveGold}
-\title{Give gold to posts, comments, and accounts}
+\title{Give gold to posts and comments}
 \usage{
 giveGold(id)
 }
 \arguments{
-\item{id}{The fullname of the post (t3_), comment (t1_), or account (t2_) being rewarded}
+\item{id}{The fullname of the post (t3_) or comment (t1_) being rewarded}
 }
 \value{
 The status message from the POST function
 }
 \description{
-Give gold to posts, comments, and accounts
+Give gold to posts and comments
 }

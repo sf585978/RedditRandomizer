@@ -1,6 +1,6 @@
-#' Give gold to posts, comments, and accounts
+#' Give gold to posts and comments
 #'
-#' @param id The fullname of the post (t3_), comment (t1_), or account (t2_) being rewarded
+#' @param id The fullname of the post (t3_) or comment (t1_) being rewarded
 #' @return The status message from the POST function
 #' @export
 #' @example
