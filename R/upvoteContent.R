@@ -9,6 +9,7 @@
 
 upvoteContent <- function(id, dir) {
   require(httr)
-  redditURL <- paste("https://oauth.reddit.com/api/vote/", id, sep = "")
+  redditURL <- paste("https://oauth.reddit.com/api/vote/?dir=", dir,
+                     "&id=", id, "&rank=2", sep = "")
   POST(redditURL, config(token = token), user_agent("MY_USER_AGENT"))
 }
