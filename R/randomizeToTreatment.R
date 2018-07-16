@@ -22,7 +22,7 @@ randomizeToTreatment <- function(n, treatments = c("C", "T"), weights) {
     dists <- number - treatThresh
     dists <- ifelse(dists > 0, NA, dists)
     thresh <- which.max(dists)
-    condition[i] <- thresh
+    condition[i] <- treatments[thresh]
   }
   return(condition)
 }
